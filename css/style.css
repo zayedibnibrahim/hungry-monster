@@ -31,3 +31,13 @@
 #single-item-box ul{
     list-style: none;
 }
+#single-item-box p{
+    margin-bottom: 1px;
+}
+.upper-data img{
+    width: 300px;
+    border-radius: 10px;
+}
+#single-item-box{
+    padding-top: 20px;
+}

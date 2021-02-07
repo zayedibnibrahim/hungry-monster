@@ -43,12 +43,20 @@ const showAllMealsData = eachMeal => {
     const mealObject = eachMeal.meals[0];
     const mealImg = mealObject.strMealThumb;
     const mealName = mealObject.strMeal;
+    const singleItemBox = document.getElementById("upper-data");
+    const upperData = document.createElement("div");
+    upperData.className = "upper-data";
+    const upperContent = `<img src="${mealImg}" id="single-meal-img">
+    <h4>${mealName}</h4>
+    <h5>Ingredients</h5>`;
+    upperData.innerHTML = upperContent;
+    singleItemBox.appendChild(upperData)
     const mealIngredientsArray = ingredientsLi(mealObject);
     for(let i=0; i< mealIngredientsArray.length; i++){
         const allIngredients = mealIngredientsArray[i];
         const ul = document.getElementById("ingredients-ul");
         const li = document.createElement("li");
-        const ingredientContent = `<i class="fas fa-check-square"></i><p>${allIngredients}</p>`;
+        const ingredientContent = `<i style="float: left;" class="fas fa-check-square"></i><p>${allIngredients}</p>`;
         li.innerHTML = ingredientContent;
         ul.appendChild(li);
     }
