@@ -1,0 +1,30 @@
+
+#search-btn{
+    background-color: #F06C4E;
+}
+#search-input{
+    background-color: #F8F7F5;
+}
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 4;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+#food-items{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+.card{
+    border-radius: 12px;
+    overflow: hidden;
+}
