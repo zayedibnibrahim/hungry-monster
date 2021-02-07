@@ -48,7 +48,7 @@ const showAllMealsData = eachMeal => {
         const allIngredients = mealIngredientsArray[i];
         const ul = document.getElementById("ingredients-ul");
         const li = document.createElement("li");
-        const ingredientContent = `<i style="color: green" class="fas fa-check-square"></i><p>${allIngredients}</p>`;
+        const ingredientContent = `<i class="fas fa-check-square"></i><p>${allIngredients}</p>`;
         li.innerHTML = ingredientContent;
         ul.appendChild(li);
     }

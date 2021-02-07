@@ -28,3 +28,6 @@
     border-radius: 12px;
     overflow: hidden;
 }
+#single-item-box ul{
+    list-style: none;
+}
