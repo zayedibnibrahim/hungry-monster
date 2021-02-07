@@ -18,6 +18,7 @@ const showAllMeals = expectedMeal => {
         const mealImg = element.strMealThumb;
         const mealCard = document.createElement("div");
         mealCard.className = "card";
+        mealCard.setAttribute('onclick', `singleMeal('${mealName}')`);
         const allMealGrid = document.getElementById("food-items");
         const mealContent = `
         <img class="card-img-top" src="${mealImg}" alt="Meal Image">
@@ -27,4 +28,16 @@ const showAllMeals = expectedMeal => {
         mealCard.innerHTML = mealContent;
         allMealGrid.appendChild(mealCard);
     });
+}
+
+const singleMeal = singleData => {
+    const apiBase = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+    const url = `${apiBase}${singleData}`;
+    fetch(url)
+        .then(singleRes => singleRes.json())
+        .then(singleData => showAllMealsData(singleData))
+}
+
+const showAllMealsData = eachMeal => {
+    
 }
