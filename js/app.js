@@ -62,16 +62,16 @@ const showAllMealsData = eachMeal => {
     <h4>${mealName}</h4>
     <h5>Ingredients</h5>
     <ul>
-    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient1}</li>
-    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient2}</li>
-    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient3}</li>
-    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient4}</li>
-    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient5}</li>
-    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient6}</li>
-    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient7}</li>
-    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient8}</li>
-    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient9}</li>
-    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient10}</li>
+    <li><i class="fas fa-check-square"></i><p>${mealObject.strIngredient1}</p></li>
+    <li><i class="fas fa-check-square"></i><p>${mealObject.strIngredient2}</p></li>
+    <li><i class="fas fa-check-square"></i><p>${mealObject.strIngredient3}</p></li>
+    <li><i class="fas fa-check-square"></i><p>${mealObject.strIngredient4}</p></li>
+    <li><i class="fas fa-check-square"></i><p>${mealObject.strIngredient5}</p></li>
+    <li><i class="fas fa-check-square"></i><p>${mealObject.strIngredient6}</p></li>
+    <li><i class="fas fa-check-square"></i><p>${mealObject.strIngredient7}</p></li>
+    <li><i class="fas fa-check-square"></i><p>${mealObject.strIngredient8}</p></li>
+    <li><i class="fas fa-check-square"></i><p>${mealObject.strIngredient9}</p></li>
+    <li><i class="fas fa-check-square"></i><p>${mealObject.strIngredient10}</p></li>
     </ul>`;
     singleItemBox.innerHTML = upperContent;
 }

@@ -35,8 +35,17 @@
 #single-item-box ul{
     list-style: none;
 }
+#single-item-box ul li svg{
+    color: seagreen;
+}
+#single-item-box ul li{
+    display: flex;
+    align-items: center;
+}
 #single-item-box p{
+    margin-left: 5px;
     margin-bottom: 1px;
+
 }
 #upper-data img{
     width: 300px;
@@ -44,6 +53,8 @@
 }
 #single-item-box{
     padding-top: 20px;
+    width: 870px;
+    margin: auto;
 }
 #error-message{
     color: #ffffff;
