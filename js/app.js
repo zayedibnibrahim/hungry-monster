@@ -1,6 +1,8 @@
 const searchingMeal = () => {
     const searchInput = document.getElementById("search-input").value;
     allMeal(searchInput);
+    const singleItemBox = document.getElementById("upper-data");
+    singleItemBox.innerHTML = '';
 }
 
 const allMeal = async searchMealName => {
