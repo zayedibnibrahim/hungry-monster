@@ -1,26 +1,40 @@
-document.getElementById("search-btn").addEventListener('click', () => {
+const searchingMeal = () => {
     const searchInput = document.getElementById("search-input").value;
     allMeal(searchInput);
-})
+}
 
-const allMeal = searchMealName => {
+const allMeal = async searchMealName => {
     const apiBase = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
     const url = `${apiBase}${searchMealName}`;
-    fetch(url)
-        .then(res => res.json())
-        .then(data => showAllMeals(data))
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        showAllMeals(data);
+    } catch (error) {
+        errorMessage();
+    }
+}
+//error handler
+const errorMessage = () => {
+    const errorText = document.getElementById("error-message");
+    errorText.style.display = "block";
+    errorText.innerText = "Sorry, Meal Item Not Found";
 }
 // Whole Grid
 const showAllMeals = expectedMeal => {
+    const errorText = document.getElementById("error-message");
+    errorText.style.display = "none";
     const resultOfMeals = expectedMeal.meals;
+    const allMealGrid = document.getElementById("food-items");
+    allMealGrid.innerHTML = '';
+
     resultOfMeals.forEach(element => {
         const mealName = element.strMeal;
         const mealImg = element.strMealThumb;
         const mealId = element.idMeal;
         const mealCard = document.createElement("div");
-        mealCard.className = "card";
+        mealCard.className = "card meal-card";
         mealCard.setAttribute('onclick', `singleMeal('${mealId}')`);
-        const allMealGrid = document.getElementById("food-items");
         const mealContent = `
         <img class="card-img-top" src="${mealImg}" alt="Meal Image">
         <div class="card-body">
@@ -31,12 +45,12 @@ const showAllMeals = expectedMeal => {
     });
 }
 //Single Grid
-const singleMeal = singleMealId => {
+const singleMeal = async singleMealId => {
     const apiBase = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
     const url = `${apiBase}${singleMealId}`;
-    fetch(url)
-        .then(singleRes => singleRes.json())
-        .then(singleData => showAllMealsData(singleData))
+    const res = await fetch(url);
+    const singleRes = await res.json();
+    showAllMealsData(singleRes)
 }
 
 const showAllMealsData = eachMeal => {
@@ -44,39 +58,20 @@ const showAllMealsData = eachMeal => {
     const mealImg = mealObject.strMealThumb;
     const mealName = mealObject.strMeal;
     const singleItemBox = document.getElementById("upper-data");
-    const upperData = document.createElement("div");
-    upperData.className = "upper-data";
     const upperContent = `<img src="${mealImg}" id="single-meal-img">
     <h4>${mealName}</h4>
-    <h5>Ingredients</h5>`;
-    upperData.innerHTML = upperContent;
-    singleItemBox.appendChild(upperData)
-    const mealIngredientsArray = ingredientsLi(mealObject);
-    for(let i=0; i< mealIngredientsArray.length; i++){
-        const allIngredients = mealIngredientsArray[i];
-        const ul = document.getElementById("ingredients-ul");
-        const li = document.createElement("li");
-        const ingredientContent = `<i style="float: left;" class="fas fa-check-square"></i><p>${allIngredients}</p>`;
-        li.innerHTML = ingredientContent;
-        ul.appendChild(li);
-    }
-    
-
-}
-//bunch of ingredients
-const ingredientsLi = ingredient => {
-    const ingredient1 = ingredient.strIngredient1;
-    const ingredient2 = ingredient.strIngredient2;
-    const ingredient3 = ingredient.strIngredient3;
-    const ingredient4 = ingredient.strIngredient4;
-    const ingredient5 = ingredient.strIngredient5;
-    const ingredient6 = ingredient.strIngredient6;
-    const ingredient7 = ingredient.strIngredient7;
-    const ingredient8 = ingredient.strIngredient8;
-    const ingredient9 = ingredient.strIngredient9;
-    const ingredient10 = ingredient.strIngredient10;
-
-    const ingredients =[ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, ingredient7, ingredient7, ingredient8, ingredient9, ingredient10];
-    
-    return ingredients;
+    <h5>Ingredients</h5>
+    <ul>
+    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient1}</li>
+    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient2}</li>
+    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient3}</li>
+    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient4}</li>
+    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient5}</li>
+    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient6}</li>
+    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient7}</li>
+    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient8}</li>
+    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient9}</li>
+    <li><i style="float: left;" class="fas fa-check-square"></i>${mealObject.strIngredient10}</li>
+    </ul>`;
+    singleItemBox.innerHTML = upperContent;
 }

@@ -8,13 +8,11 @@
     <title>Hungry Monster</title>
 
     <!--Bootstrap CSS-->
-    <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <!--Font awesome-->
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
-    <!--stylesheet-->
     <link rel="stylesheet" href="css/all.min.css">
+    <!--Custom CSS-->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -23,7 +21,6 @@
     <section class="container">
         <div id="single-item-box">
             <div id="upper-data"></div>
-            <ul id="ingredients-ul">
                 
             </ul>
         </div>
@@ -35,11 +32,11 @@
                 <i class="fas fa-search form-control-feedback"></i>
                 <input id="search-input" type="text" class="form-control" placeholder="Search For Meal...">
                 <div class="input-group-append">
-                    <button id="search-btn" type="button" class="btn btn-danger">Search</button>
+                    <button onclick="searchingMeal()" type="button" class="btn btn-danger search-btn">Search</button>
                 </div>
             </div>
+            <p id="error-message"></p>
         </form>
-
         <div id="food-items">
 
         </div>
